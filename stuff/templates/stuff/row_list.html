@@ -1,0 +1,40 @@
+{% load humanize %}
+<!doctype html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    {#    <meta name="viewport"#}
+    {#          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">#}
+    {#    <meta http-equiv="X-UA-Compatible" content="ie=edge">#}
+    <title>SearchVector Demo</title>
+</head>
+<body dir="rtl">
+
+<form>
+    <input type="search" name="q" value="{{ view.term }}">
+    <button>חיפוש</button>
+</form>
+
+<p>
+    {{ paginator.count|intcomma }}
+    מתוך
+    {{ view.total|intcomma }}
+</p>
+
+<dl>
+
+    {% for object in object_list %}
+        <dt>
+            <b>{{ object.work.title }}</b>
+            מאת
+            {{ object.work.authors }}
+            (שורה
+            {{ object.ordinal }})
+        </dt>
+        <dd>
+            {{ object.content }}
+        </dd>
+    {% endfor %}
+</dl>
+</body>
+</html>
