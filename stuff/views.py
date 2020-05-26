@@ -8,7 +8,7 @@ class Home(ListView):
     paginate_by = 50
 
     def term(self):
-        return self.request.GET.get('q')
+        return self.request.GET.get('q', '')
 
     def get_queryset(self):
         return super().get_queryset().filter(sv=self.term())
@@ -16,5 +16,5 @@ class Home(ListView):
     def paginate_queryset(self, queryset, page_size):
         return super().paginate_queryset(queryset, page_size)
 
-    def total(self):
-        return Row.objects.count()
+    # def total(self):
+    #     return Row.objects.count()  # too slow!!!

@@ -15,7 +15,7 @@
     git clone https://github.com/projectbenyehuda/public_domain_dump.git
     
     pipenv run manage.py populate_works  
-    pipenv run manage.py update_sv
+    time pipenv run manage.py update_sv
 
 # Run
 
