@@ -16,9 +16,10 @@
 </form>
 
 <p>
-    {{ paginator.count|intcomma }}
+    מציג
+    {{ object_list.count|intcomma }}
     מתוך
-    {{ view.total|intcomma }}
+    {{ paginator.count|intcomma }}
 </p>
 
 <dl>
